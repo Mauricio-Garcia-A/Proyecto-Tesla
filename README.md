@@ -2,6 +2,7 @@
 
 
 > 🧑‍🚀 **Copia de la pagina de tesla** con fines didacticos y de aprendisajes!
+
     La ide no es hacer un 'Designing a Pixel Perfect Clone' de la pagina de Tesla si no un diseño similar. Y procurando hacerlo lo mas puro posible, sin usar librerias como React, Angular, Svelte, Next o Vue.
 
 
