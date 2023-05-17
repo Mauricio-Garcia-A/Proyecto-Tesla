@@ -2,9 +2,10 @@
 
 
 > 🧑‍🚀 **Copia de la pagina de tesla** Con fines didacticos y de aprendisajes!
-Tecnologias usadas en el proyecto:
-    - ASTRO (JS)
-    - Tailwind (CSS)
+
+    Tecnologias usadas en el proyecto:
+        - ASTRO (JS)
+        - Tailwind (CSS)
 
 
 ## 🚀 Estructura del proyecto
