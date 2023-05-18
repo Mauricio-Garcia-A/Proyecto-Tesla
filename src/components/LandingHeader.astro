@@ -1,0 +1,97 @@
+---
+import LogoTitle from "./LogoTitle.astro";
+---
+
+<header
+    id="landing-header"
+    class="py-3 px-10 flex items-center fixed top-0 justify-between w-screen z-40 text-white"
+>
+    <div class="flex flex-grow basis-0">
+        <a href="#hero-section">
+            <LogoTitle />
+        </a>
+    </div>
+    <nav class="hidden lg:block">
+        <ul
+            class="flex text-sm [&>li>a]:whitespace-nowrap [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+        >
+            <li><a href="#model-s">Model S</a></li>
+            <li><a href="#model-3">Model 3</a></li>
+            <li><a href="#model-x">Model X</a></li>
+            <li><a href="#model-y">Model Y</a></li>
+            <li><a href="#cybertruck">Cybertruck</a></li>
+            <li><a href="#powerwall">Powerwall</a></li>
+        </ul>
+    </nav>
+    <nav class="hidden lg:flex flex-grow justify-end basis-0">
+        <ul
+            class="flex text-[10px] [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+        >
+            <li><a href="">Soporte</a></li>
+            <li><a href="">Tienda</a></li>
+            <li><a href="">Cuenta</a></li>
+            <li><a href="">Menú</a></li>
+        </ul>
+    </nav>
+    <div
+        class={`
+            absolute  blackdrop-blur-lg
+            left-[var(--left)] top-[var(--top)]
+            w-[var(--width)] h-[var(--height)]
+            transition-all duration-500
+            ease-in-out opacity-0
+            -z-10 rounded-md
+        `}
+        id="menu-blackdrop"
+    >
+    </div>
+</header>
+
+<script>
+    const observerOptions = {
+        root: null, // null cuando este en pantalla
+        rootMargin: "0px", // en cuanto se vea el elemento (cuando empiese a asomar)
+        threshold: 0.9, // Porcentaje de visibilidad (que porsentaje que se quiere que se tenga para detectarlo)
+    };
+    const $header = document.querySelector("#landing-header") as HTMLElement; // El signo peso adelante de la variable es solo una convencion para saber que es un elemento del DOM
+    const $menuBackDrop = document.querySelector(
+        "#menu-blackdrop"
+    ) as HTMLElement;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const { isIntersecting } = entry;
+            if (isIntersecting) {
+                const color = entry.target.getAttribute("data-header-color");
+                $header.style.color = color;
+                $menuBackDrop.style.background = color;
+            }
+        });
+    }, observerOptions);
+
+    const $sections = document.querySelectorAll(".landing-section");
+    $sections.forEach((section) => observer.observe(section));
+</script>
+
+<script>
+    const listItems = document.querySelectorAll("#landing-header nav ul li");
+    const menuBackDrop = document.querySelector(
+        "#menu-blackdrop"
+    ) as HTMLElement;
+
+    listItems.forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+            const { left, top, width, height } = item.getBoundingClientRect();
+            menuBackDrop.style.setProperty("--left", `${left}px`);
+            menuBackDrop.style.setProperty("--top", `${top}px`);
+            menuBackDrop.style.setProperty("--width", `${width}px`);
+            menuBackDrop.style.setProperty("--height", `${height}px`);
+            menuBackDrop.style.opacity = "0.2";
+            menuBackDrop.style.visibility = "visible";
+        });
+
+        item.addEventListener("mouseleave", () => {
+            menuBackDrop.style.opacity = "0";
+        });
+    });
+</script>

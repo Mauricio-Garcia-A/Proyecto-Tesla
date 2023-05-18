@@ -1,56 +1,85 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import ChargeSection from "../components/ChargeSection.astro";
+import HeroSection from "../components/HeroSection.astro";
+import LandingFooter from "../components/LandingFooter.astro";
+import LandingHeader from "../components/LandingHeader.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Hola mundo</h1>
-
+<Layout title="TESLA">
+	<LandingHeader />
+	<main
+		class="relative w-full h-screen overflow-x-hidden overflow-y-auto snap-y snap-mandatory scroll-smooth"
+	>
+		<div class="snap-start">
+			<HeroSection
+				title="Disfrute de Tesla"
+				subtitle="Programe una prueba de conducción hoy mismo"
+				video="Homepage-Desktop.webm"
+				idSection="hero-section"
+			/>
+		</div>
+		<div class="snap-start">
+			<ChargeSection
+				title="Model 3"
+				subtitle="Concertar una prueba de conducción hoy mismo"
+				image="Model-3-Desktop.avif"
+				colorMenu="black"
+				idSection="model-3"
+			/>
+		</div>
+		<div class="snap-start">
+			<ChargeSection
+				title="Model Y"
+				subtitle="Concertar una prueba de conducción"
+				image="Model-Y-Desktop.avif"
+				colorMenu="black"
+				idSection="model-y"
+			/>
+		</div>
+		<div class="snap-start">
+			<ChargeSection
+				title="Model S"
+				subtitle="Programe una consulta virtual"
+				image="Model-S-Desktop.avif"
+				idSection="model-s"
+			/>
+		</div>
+		<div class="snap-start">
+			<ChargeSection
+				title="Model X"
+				subtitle="Programe una consulta virtual"
+				image="Model-X-Desktop.avif"
+				colorMenu="black"
+				idSection="model-x"
+			/>
+		</div>
+		<div class="snap-start">
+			<ChargeSection
+				title="Cybertruck"
+				subtitle="Concertar una prueba de conducción"
+				image="Cybertruck-Desktop.avif"
+				colorMenu="black"
+				idSection="cybertruck"
+			/>
+		</div>
+		<div class="snap-start">
+			<ChargeSection
+				title="Panel Solar y Powerwall"
+				subtitle="Potencia todo"
+				image="Powerwall-Desktop.avif"
+				colorMenu="black"
+				idSection="powerwall"
+			/>
+		</div>
+		<footer class="snap-start">
+			<LandingFooter
+				title="Accesorios"
+				subtitle=""
+				image="Accessories-Desktop.avif"
+				colorMenu="black"
+				idSection="accessories"
+			/>
+		</footer>
 	</main>
 </Layout>
-
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
-</style>

@@ -20,10 +20,23 @@ Estructura bacica de Carpetas y archivos que contiene el proyecto:
 ```
 /
 ├── public/
-│   └── favicon.svg
+│   ├── favicon.ico
+│   ├── videos/
+│   │    └── Homepage-Desktop.webm
+│   └── images/
+│       └── Model-S-Desktop.avif
+│       └── Model-3-Desktop.avif
+│       └── Model-X-Desktop.avif
+│       └── ( ... )
 ├── src/
 │   ├── components/
-│   │   └── Card.astro
+│   │   └── ChargeSection.astro
+│   │   └── HeroSection.astro
+│   │   └── LandingFooter.astro
+│   │   └── LandingHeader.astro
+│   │   └── Logo.astro
+│   │   └── LogoTitle.astro
+│   │   └── Section.astro
 │   ├── layouts/
 │   │   └── Layout.astro
 │   └── pages/
@@ -48,4 +61,4 @@ Estructura bacica de Carpetas y archivos que contiene el proyecto:
 
 ## 👀 Informacion extra
 
-
+Se Agradece principamente a MIDUDEV, por el aporte de estas propuestas,conocimientos y contenidos!

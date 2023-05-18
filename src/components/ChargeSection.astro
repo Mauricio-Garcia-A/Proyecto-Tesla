@@ -1,0 +1,33 @@
+---
+import Section from "./Section.astro";
+const { title, subtitle, image, idSection } = Astro.props;
+---
+
+<Section
+    title={title}
+    subtitle={subtitle}
+    idSection={idSection}
+    colorMenu="black"
+    colorText="black"
+>
+    <a
+        slot="footer"
+        class="text-white border-[0px] border-[#393c40] bg-[#393c40] backdrop-blur-sm rounded-lg font-medium lg:px-12 md:px-8 px-3 py-2  inline-block hover:bg-opacity-40 hover:backdrop-blur-sm hover:text-black transition-colors duration-300"
+        href="#"
+    >
+        Explorar inventario
+    </a>
+    <a  
+        slot="footer"
+        class="text-black border-[0px] border-white bg-white backdrop-blur-sm rounded-lg font-medium lg:px-12 md:px-8 px-3 py-2 inline-block hover:bg-black hover:bg-opacity-30 hover:backdrop-blur-sm hover:text-white transition-colors duration-300"
+        href="#"
+    >
+        Pedido personalizado
+    </a>
+
+    <img
+        slot="background"
+        src=`/images/${image}`
+        class="object-center object-cover h-full w-full"
+    />
+</Section>

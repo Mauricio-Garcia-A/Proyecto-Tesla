@@ -1,0 +1,31 @@
+---
+import Section from "./Section.astro";
+const { title, subtitle, image, idSection } = Astro.props;
+---
+
+<Section
+    title={title}
+    subtitle={subtitle}
+    idSection={idSection}
+    colorMenu="black"
+    colorText="black"
+>
+    <a
+        slot="footer"
+        class="text-white border-[0px] border-[#393c40] bg-[#393c40] backdrop-blur-sm rounded-lg font-medium px-12 py-2 inline-block hover:bg-opacity-40 hover:backdrop-blur-sm hover:text-black transition-colors duration-300"
+        href="#"
+    >
+        Comprar ahora
+    </a>
+
+    <img
+        slot="background"
+        src=`/images/${image}`
+        class="object-center object-cover h-full w-full"
+    />
+</Section>
+<div slot="footer" class="text-sm text-gray-600 text-center">
+    <p class="w-screen">
+        Tesla © 2023 - Privacidad y legal - Contacto - Noticias - Seguir informado - Localización de tiendas
+    </p>
+</div>

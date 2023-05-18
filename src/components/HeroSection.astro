@@ -1,0 +1,32 @@
+---
+import Logo from "./Logo.astro";
+import Section from "./Section.astro";
+const { title, subtitle, video, idSection } = Astro.props;
+---
+
+<Section
+    title={title}
+    subtitle={subtitle}
+    idSection={idSection}
+    colorMenu="white"
+    colorText="white"
+>
+    <div slot="main" class='flex justify-center' >
+        <Logo />
+    </div>
+    
+    <a
+        slot="footer"
+        class="text-white border-[3px] border-white bg-black bg-opacity-30 backdrop-blur-sm rounded-lg font-medium px-12 py-2 inline-block hover:bg-white hover:bg-opacity-30 hover:backdrop-blur-sm hover:text-black transition-colors duration-300"
+        href="#"
+    >
+        Prueba de conducción</a
+    >
+    <video
+        slot="background"
+        class="object-center object-cover h-full w-full"
+        src=`/videos/${video}`
+        autoplay
+        muted
+        loop></video>
+</Section>
