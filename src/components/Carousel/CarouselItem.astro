@@ -1,0 +1,15 @@
+---
+const { video,id } = Astro.props;
+
+---
+
+<article>
+    <video
+    slot="background"
+    class="object-center object-cover h-full w-full"
+    src={video}
+    autoplay
+    muted
+    loop></video>
+
+</article>

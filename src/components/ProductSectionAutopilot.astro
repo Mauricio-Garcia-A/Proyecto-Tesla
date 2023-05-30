@@ -1,0 +1,47 @@
+---
+import Carrousel from "./Carousel/Carrousel.astro";
+import Section from "./Section.astro";
+const { title, subtitle, image, idSection, characteristics, items } = Astro.props;
+
+
+---
+
+<Section
+    title={title}
+    idSection={idSection}
+    colorMenu="black"
+    colorText="black"
+>
+    <div slot="background" class="w-full h-full">
+        <div
+            class="bg-gradient-to-t from-white via-transparent w-full h-full z-20 absolute"
+        >
+        </div>
+        <img
+            src={image}
+            class="object-center object-cover h-full w-full z-10 absolute"
+        />
+    </div>
+    <article slot="main" class="w-full">
+        <ul class="flex flex-col text-black gap-20 justify-evenly pb-32 w-full">
+            {
+                items.map((item) => {
+                    return (
+                        <li class='text-left pl-12 w-[30%]'>
+                            <h3 class="font-semibold text-xl p-2">{item.title}</h3>
+                            <p class="text-[10pt]">
+                                {item.value}
+                            </p>
+                            
+                        </li>
+                    );
+                })
+            }
+        </ul>
+    </article>
+</Section>
+<section class='pt-14'>
+    <h2 class="font-semibold text-xl px-10 lg:px-20 py-5">{  characteristics.title }</h2>
+    <p class="px-10 lg:px-20">{characteristics.subtitle}</p>
+    <Carrousel items={characteristics.items}/>
+</section>

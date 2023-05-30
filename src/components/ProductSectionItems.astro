@@ -1,0 +1,51 @@
+---
+import Section from "./Section.astro";
+const { title, subtitle, image, idSection, introText, items } = Astro.props;
+
+---
+
+<Section
+    title={title}
+    subtitle={subtitle}
+    idSection={idSection}
+    colorMenu="white"
+    colorText="white"
+>
+    <div slot="background" class="w-full h-full">
+        <div
+            class="bg-gradient-to-b from-black via-transparent w-full h-full z-20 absolute"
+        >
+        </div>
+        <img
+            src={image}
+            class="object-center object-cover h-full w-full z-10 absolute"
+        />
+    </div>
+    <p slot="footer" class=" text-white px-10">{introText}</p>
+</Section>
+
+<article slot="footer" class="w-full h-full bg-black lg:px-40 py-[100px]">
+    <ul class="flex flex-col gap-16 lg:gap-3">
+        {
+            items.map((item,i) => {
+                let styleItem = 'flex flex-col-reverse lg:flex-row-reverse gap-4 [&>div]:px-10 lg:[&>div]:pr-20 lg:[&>div]:pl-0'
+                if ((i%2)===0 ){
+                    styleItem = 'flex flex-col-reverse lg:flex-row gap-4 [&>div]:px-10 lg:[&>div]:pl-20 lg:[&>div]:pr-0'
+                }
+                return (
+                    <li class={styleItem}>
+                        <img
+                            class="w-full lg:w-[50%]"
+                            src={item.image}
+                            alt={item.title}
+                        />
+                        <div class="flex flex-col text-white justify-center">
+                            <h3 class="font-semibold pb-3">{item.title}</h3>
+                            <p class=" text-sm">{item.value}</p>
+                        </div>
+                    </li>
+                );
+            })
+        }
+    </ul>
+</article>

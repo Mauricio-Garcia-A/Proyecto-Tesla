@@ -1,0 +1,54 @@
+---
+import Section from "./Section.astro";
+const { title, subtitle, image, idSection, items} = Astro.props;
+
+---
+
+<Section
+    title={title}
+    subtitle={subtitle}
+    idSection={idSection}
+    colorMenu="black"
+    colorText="black"
+>
+    <article slot="footer" class="w-full">
+        <ul class="flex text-white gap-2 md:gap-6 justify-evenly pb-6">
+            {
+                items.map((item) => {
+                    return (
+                        <li>
+                            <p class="font-semibold text-[11pt] md:text-xl p-2">
+                                {item.value}
+                            </p>
+                            <p class="text-[8pt]">{item.title}</p>
+                        </li>
+                    );
+                })
+            }
+        </ul>
+        <div class="flex gap-4 justify-center">
+            <a
+                class="text-white border-[2px] border-white bg-[#393c40] backdrop-blur-sm rounded-lg font-medium lg:px-12 md:px-8 px-3 py-2 inline-block hover:bg-opacity-40 hover:backdrop-blur-sm hover:text-white transition-colors duration-300"
+                href="#"
+            >
+                Ordenar ahora
+            </a>
+            <a
+                class="text-black border-[2px] border-white bg-white backdrop-blur-sm rounded-lg font-medium lg:px-12 md:px-8 px-3 py-2 inline-block hover:bg-white/5  hover:backdrop-blur-sm hover:text-white hover:border-white/50 transition-colors duration-300"
+                href="#"
+            >
+                Prueba de conduccion
+            </a>
+        </div>
+    </article>
+    <div slot="background" class="w-full h-full">
+        <div
+            class='bg-gradient-to-t from-black via-transparent w-full h-full z-20 absolute'
+        />
+        <img
+            src={image}
+            class='object-center object-cover h-full w-full z-10 absolute'
+        />
+    </div>
+    </div>
+</Section>

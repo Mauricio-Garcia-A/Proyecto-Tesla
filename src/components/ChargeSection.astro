@@ -13,7 +13,7 @@ const { title, subtitle, image, idSection } = Astro.props;
     <a
         slot="footer"
         class="text-white border-[0px] border-[#393c40] bg-[#393c40] backdrop-blur-sm rounded-lg font-medium lg:px-12 md:px-8 px-3 py-2  inline-block hover:bg-opacity-40 hover:backdrop-blur-sm hover:text-black transition-colors duration-300"
-        href="#"
+        href="/product-selected"
     >
         Explorar inventario
     </a>
@@ -27,7 +27,7 @@ const { title, subtitle, image, idSection } = Astro.props;
 
     <img
         slot="background"
-        src=`/images/${image}`
+        src={image}
         class="object-center object-cover h-full w-full"
     />
 </Section>

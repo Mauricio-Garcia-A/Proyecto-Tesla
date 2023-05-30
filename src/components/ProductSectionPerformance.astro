@@ -1,0 +1,45 @@
+---
+
+const { title, subtitle, image, idSection, introText, items } = Astro.props;
+const color = `text-white`;
+---
+
+<section
+    class="landing-section w-screen h-[600px] text-center relative overflow-hidden flex justify-between items-center flex-col"
+    data-header-color="black"
+    id={idSection}
+>
+    <header class="z-30 relative mt-20">
+        <h2 class={`${color}  text-[40px] font-medium`}>{title}</h2>
+        <p class=`${color} text-sm px-10`>
+            {subtitle}
+        </p>
+    </header>
+    <div class="absolute top-0 bottom-0 h-full z-10 w-full">
+        <img
+            src={image}
+            class="object-center object-cover h-full w-full z-10 absolute"
+        />
+    </div>
+</section>
+
+{
+    items.map((item) => {
+        return (
+            <div class="flex  flex-col md:flex-row ">
+                <div class="flex flex-col text-black justify-center mx-0 p-5 lg:mx-40 bg-white/50 backdrop-blur-sm rounded-md w-full">
+                    <h4 class="">{item.title}</h4>
+                    <h3 class="text-[18pt] font-semibold pb-3 mt-0 pt-0" >{item.subtitle}</h3>
+                    <p class=" text-sm">{item.value}</p>
+                </div>
+                <article class="w-full bg-white flex text-black justify-center items-center">
+                    <img
+                        class="w-full "
+                        src={item.image}
+                        alt={item.title}
+                    />
+                </article>
+            </div>
+        );
+    })
+}

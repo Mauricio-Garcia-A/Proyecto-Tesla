@@ -11,12 +11,12 @@ const color=`text-${colorText}`
     <header class="z-30 relative mt-20">
         
         <h2 class={`${color}  text-[40px] font-medium`}>{title}</h2>
-        <p class=`${color} text-sm `>
+        <p class=`${color} text-sm px-10`>
             {subtitle}
         </p>
         
     </header>
-    <main class="z-30 relative">
+    <main class="z-30 relative w-full">
         <slot name='main' />
     </main>
     <footer class="z-30 relative pb-20 flex gap-x-4 mx-auto px-5">

@@ -4,10 +4,35 @@ import HeroSection from "../components/HeroSection.astro";
 import LandingFooter from "../components/LandingFooter.astro";
 import LandingHeader from "../components/LandingHeader.astro";
 import Layout from "../layouts/Layout.astro";
+
+
+const OPCION_MENU = [
+    {
+        text: "Model 3",
+        url: "#model-3",
+    },
+    {
+        text: "Model X",
+        url: "#model-x",
+    },
+    {
+        text: "Model Y",
+        url: "#model-y",
+    },
+    {
+        text: "Cybertruck",
+        url: "#cybertruck",
+    },
+    {
+        text: "Powerwall",
+        url: "#powerwall",
+    },
+];
+
 ---
 
 <Layout title="TESLA">
-	<LandingHeader />
+	<LandingHeader navOptions={OPCION_MENU}/>
 	<main
 		class="relative w-full h-screen overflow-x-hidden overflow-y-auto snap-y snap-mandatory scroll-smooth"
 	>
@@ -23,7 +48,7 @@ import Layout from "../layouts/Layout.astro";
 			<ChargeSection
 				title="Model 3"
 				subtitle="Concertar una prueba de conducción hoy mismo"
-				image="Model-3-Desktop.avif"
+				image="/images/Model-3-Desktop.avif"
 				colorMenu="black"
 				idSection="model-3"
 			/>
@@ -32,7 +57,7 @@ import Layout from "../layouts/Layout.astro";
 			<ChargeSection
 				title="Model Y"
 				subtitle="Concertar una prueba de conducción"
-				image="Model-Y-Desktop.avif"
+				image="/images/Model-Y-Desktop.avif"
 				colorMenu="black"
 				idSection="model-y"
 			/>
@@ -41,7 +66,7 @@ import Layout from "../layouts/Layout.astro";
 			<ChargeSection
 				title="Model S"
 				subtitle="Programe una consulta virtual"
-				image="Model-S-Desktop.avif"
+				image="/images/Model-S-Desktop.avif"
 				idSection="model-s"
 			/>
 		</div>
@@ -49,7 +74,7 @@ import Layout from "../layouts/Layout.astro";
 			<ChargeSection
 				title="Model X"
 				subtitle="Programe una consulta virtual"
-				image="Model-X-Desktop.avif"
+				image="/images/Model-X-Desktop.avif"
 				colorMenu="black"
 				idSection="model-x"
 			/>
@@ -58,7 +83,7 @@ import Layout from "../layouts/Layout.astro";
 			<ChargeSection
 				title="Cybertruck"
 				subtitle="Concertar una prueba de conducción"
-				image="Cybertruck-Desktop.avif"
+				image="/images/Cybertruck-Desktop.avif"
 				colorMenu="black"
 				idSection="cybertruck"
 			/>
@@ -67,7 +92,7 @@ import Layout from "../layouts/Layout.astro";
 			<ChargeSection
 				title="Panel Solar y Powerwall"
 				subtitle="Potencia todo"
-				image="Powerwall-Desktop.avif"
+				image="/images/Powerwall-Desktop.avif"
 				colorMenu="black"
 				idSection="powerwall"
 			/>
@@ -76,7 +101,7 @@ import Layout from "../layouts/Layout.astro";
 			<LandingFooter
 				title="Accesorios"
 				subtitle=""
-				image="Accessories-Desktop.avif"
+				image="/images/Accessories-Desktop.avif"
 				colorMenu="black"
 				idSection="accessories"
 			/>

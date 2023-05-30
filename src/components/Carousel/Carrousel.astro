@@ -1,0 +1,69 @@
+---
+const { items } = Astro.props;
+---
+
+<script>
+  const $videos = document.querySelectorAll(".video-autopilot");
+  $videos.forEach((video) => (video.style.display = "none"));
+  const $videoSelected = document.querySelector("#video-carrousel-0");
+  $videoSelected.style.display = "flex";
+
+  const handleClick = (id) => {
+    $videos.forEach((video) => (video.style.display = "none"));
+    const $videoSelected = document.querySelector(`#video-carrousel-${id}`);
+    $videoSelected.style.display = "flex";
+
+    buttons.forEach((button) => (button.style.opacity = "0.3"));
+    const $buttonSelected = document.querySelector(`#button-carrousel-${id}`);
+    $buttonSelected.style.opacity = "1";
+  };
+
+  const buttons = document.querySelectorAll(".button-carrousel");
+  buttons.forEach((button, index) => {
+    button.style.opacity = "0.3";
+    button.addEventListener("click", () => handleClick(index));
+  });
+  const $buttonSelected = document.querySelector("#button-carrousel-0");
+  $buttonSelected.style.opacity = "1";
+</script>
+
+<div class="w-full">
+  <article class="">
+    {
+      items.map((item, i) => {
+        return (
+          <div
+            class="video-autopilot object-center object-cover h-full w-full flex flex-row justify-center items-center "
+            id={`video-carrousel-${i}`}
+          >
+            <video
+              src={item.image}
+              autoplay
+              muted
+              loop
+              class="w-[100%] lg:w-[80%]"
+            />
+          </div>
+        );
+      })
+    }
+  </article>
+
+  <article
+    class="w-full flex flex-row justify-center items-start gap-5 px-[20px]"
+  >
+    {
+      items.map((item, i) => {
+        return (
+          <button
+            id={`button-carrousel-${i}`}
+            class="button-carrousel w-52 border-t-2 border-black "
+          >
+            <h2 class="text-[10pt] mb-3 mt-3">{item.title}</h2>
+            <p class="text-[8pt] text-gray-400">{item.subtitle}</p>
+          </button>
+        );
+      })
+    }
+  </article>
+</div>

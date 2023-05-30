@@ -1,5 +1,11 @@
 ---
 import LogoTitle from "./LogoTitle.astro";
+const { navOptions = [] } = Astro.props;
+
+let viewNav = false;
+if (navOptions.length !== 0) {
+    viewNav = true;
+}
 ---
 
 <header
@@ -7,25 +13,28 @@ import LogoTitle from "./LogoTitle.astro";
     class="py-3 px-10 flex items-center fixed top-0 justify-between w-screen z-40 text-white"
 >
     <div class="flex flex-grow basis-0">
-        <a href="#hero-section">
+        <a href="/">
             <LogoTitle />
         </a>
     </div>
     <nav class="hidden lg:block">
-        <ul
-            class="flex text-sm [&>li>a]:whitespace-nowrap [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
-        >
-            <li><a href="#model-s">Model S</a></li>
-            <li><a href="#model-3">Model 3</a></li>
-            <li><a href="#model-x">Model X</a></li>
-            <li><a href="#model-y">Model Y</a></li>
-            <li><a href="#cybertruck">Cybertruck</a></li>
-            <li><a href="#powerwall">Powerwall</a></li>
-        </ul>
+        {
+            viewNav && (
+                <ul class="flex text-sm [&>li>a]:whitespace-nowrap [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2">
+                    {navOptions.map((option) => {
+                        return (
+                            <li>
+                                <a href={option.url}>{option.text}</a>
+                            </li>
+                        );
+                    })}
+                </ul>
+            )
+        }
     </nav>
     <nav class="hidden lg:flex flex-grow justify-end basis-0">
         <ul
-            class="flex text-[10px] [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+            class="flex text-[10px] [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-2 [&>li>a]:py-2"
         >
             <li><a href="">Soporte</a></li>
             <li><a href="">Tienda</a></li>

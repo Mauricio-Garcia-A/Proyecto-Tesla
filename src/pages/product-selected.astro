@@ -1,0 +1,54 @@
+---
+import LandingHeader from "../components/LandingHeader.astro";
+import ProductDescriptionSection from "../components/ProductDescriptionSection.astro";
+import ProductFooter from "../components/ProductFooter.astro";
+import ProductSectionAutopilot from "../components/ProductSectionAutopilot.astro";
+import ProductSectionItems from "../components/ProductSectionItems.astro";
+import ProductSectionPerformance from "../components/ProductSectionPerformance.astro";
+import Layout from "../layouts/Layout.astro";
+import { getProduct } from "../services/getProduct";
+
+const {product}= getProduct({idProduct:'model-s'})
+const OPCION_MENU = []
+---
+
+<Layout title="TESLA">
+    <LandingHeader navOptions={OPCION_MENU} />
+    <main>
+        <ProductDescriptionSection
+            title={product.title}
+            image={product.description.image}
+            items={product.description.characteristics}
+            idSection=`product-description`
+        />
+        <ProductSectionItems
+            title={product.interior.title}
+            image={product.interior.image}
+            idSection="section-product-interior"
+            items={product.interior.itemsInterior}
+        />
+        <ProductSectionPerformance
+            title={product.performance.title}
+            image={product.performance.image}
+            idSection="section-product-performance"
+            items={product.performance.itemsPerformance}
+        />
+
+        <ProductSectionItems
+            title={product.exterior.title}
+            introText={product.exterior.subtitle}
+            image={product.exterior.image}
+            idSection="section-product-exterior"
+            items={product.exterior.itemsExterior}
+        />
+        <ProductSectionAutopilot
+            title={product.autopilot.title}
+            subtitle={product.autopilot.subtitle}
+            image={product.autopilot.image}
+            idSection="model-s"
+            items={product.autopilot.itemsAutopilot}
+            characteristics={product.autopilot.characteristics}
+        />
+        <ProductFooter />
+    </main>
+</Layout>
